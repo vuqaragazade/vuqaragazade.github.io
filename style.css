@@ -75,16 +75,16 @@ main {
 }
 #content {
     width: 100%;
-    height: 280px;
+    min-height: 280px;
     background-color: #222;
     margin-top: 17px;
     overflow: auto;
     padding-left: 30px;
 }
-#list {
+.list {
     width: 100%;
 }
-#list li {
+.list li {
     font-size: 1.2em;
     color: rgba(0, 119, 255, 0.747);
     font-weight: bold;
@@ -92,7 +92,7 @@ main {
     padding: 13px;
     list-style: square;
 }
-#list span {
+.list span {
     color: #fff;
     font-size: 0.8em;
     font-weight: bold;
@@ -104,12 +104,12 @@ main {
 }
 #skills-area {
     width: 100%;
-    height: 280px;
+    min-height: 280px;
     margin-top: 17px;
     background-color: #222;
     overflow: auto;
 }
-#skills-area #list {
+#skills-area .list {
     width: 40%;
     float: left;
     margin-right: 10%;
@@ -117,14 +117,13 @@ main {
 #skills-area ul:first-child {
     padding-left: 30px;
 }
-#skills-area #list li b {
+#skills-area .list li b {
     float: left;
 }
 .rate {
     position: relative;
     display: inline;
     float: right;
-    min-width: 200px;
     width: 60%;
     height: 18px;
     border: solid 1px black;
@@ -138,9 +137,9 @@ main {
 }
 footer {
     width: 100%;
-    height: 70px;
     background-color: rgb(212, 209, 204);
     padding: 20px 0;
+    overflow: auto;
 }
 footer .fab {
     color: rgb(5, 5, 5);
@@ -158,4 +157,60 @@ footer p {
 footer a {
     color: black;
     font-size: 1.2em;
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 10px 0;
+    }
+    #owner-pic {
+        width: 100%;
+    }
+    #owner-pic img {
+        width: 90%;
+    }
+    #shadow {
+        right: 0;
+        width: 90%;
+    }
+    .change-menu li {
+        font-size: .9em;
+        padding: 10px;
+    }
+    #about {
+        width: 100%;
+        margin-top: 40px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .list li {
+        font-size: 0.9em;
+    }
+    #skills .change-menu li {
+        text-align: center;
+        float: left;
+        padding: 10px 0;
+        display: block;
+        width: 49%;
+        margin-bottom: 5px ;
+    }
+    #skills .change-menu li:first-child {
+        margin-right: 2%;
+    }
+    #skills .change-menu li:last-child {
+        width: 100%;
+        margin: 0 0 5px 0;
+    }
+    #skills-area .list {
+        width: 100%;
+        padding-left: 30px;
+    }
+    footer p {
+        display: block;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .social {
+        float: left;
+    }
 }
