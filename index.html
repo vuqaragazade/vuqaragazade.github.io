@@ -1,9 +1,247 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="UTF-8" />
+	<title>Front-end developer portfolio</title>
+	<meta name="description" content="Vuqar Agazade - Front-end developer portfolio">
+    <meta name="author" content="Vuqar Agazade">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
- <h1>Wellcome!</h1>
+	<header>
+		<div id="top-menu">
+			<div class="container">
+				<div class="social">
+					<a href="mailto:agazade.vuqar.1996@gmail.com"><i class="far fa-envelope"></i></a>
+					<a href=""><i class="fab fa-linkedin-in"></i></a>
+					<a href="https://github.com/vuqaragazade"><i class="fab fa-github"></i></a>
+					<a href=""><i class="fab fa-facebook-f"></i></a>
+					<a href="https://twitter.com/vuqaragazadee"><i class="fab fa-twitter"></i></a>
+					<a href="https://instagram.com/vuqaragazade"><i class="fab fa-instagram"></i></a>
+				</div>
+			</div>
+		</div>
+		<div id="wallpaper"></div>
+	</header>
+	<main>
+		<div class="container">
+			<section id="info">
+				<div id="owner-pic">
+					<img src="img/cv-picture.jpg" />
+					<div id="shadow"></div>
+				</div>
+				<div id="about">
+					<ul class="change-menu">
+						<li>About Me</li>
+						<li>Education</li>
+					</ul>
+					<section id="content">
+						<ul id="list">
+							<li>Name: <span>Vüqar Ağazadə</span></li>
+							<li>Date of birth: <span>28/06/1996</span></li>
+							<li>Phone: <span>+994709440237</span></li>
+							<li>Email: <span>agazade.vuqar.1996@gmail.com</span></li>
+							<li>Address: <span>Bileceri , 1 may s., Baku</span></li>
+							<li>Nationality: <span>Azerbaijan</span></li>
+						</ul>
+					</section>
+				</div>
+			</section>
+			<section id="skills">
+				<ul class="change-menu">
+					<li>Programming skills</li>
+					<li>Other computer skills</li>
+					<li>Languages</li>
+				</ul>
+				<div id="skills-area">
+					<ul id="list">
+						<li id="html"><b>HTML</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="css"><b>CSS</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="javascript"><b>Javascript</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="php"><b>Php</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="python"><b>Python</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="nodejs"><b>NodeJs</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+					</ul>
+					<ul id="list">
+						<li id="bootstrap"><b>Bootstrap</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="materialize"><b>Materialize</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="jquery"><b>jQuery</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="ajax"><b>Ajax</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="git"><b>Git</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+						<li id="wordpress"><b>Wordpress</b>
+							<div class="rate">
+								<div class="percentage"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</main>
+	<footer>
+		<div class="container">
+			<p>
+				<a href="/">© 2020 Vuqar Agazade</a>
+			</p>
+			<div class="social">
+				<a href="mailto:agazade.vuqar.1996@gmail.com"><i class="far fa-envelope"></i></a>
+				<a href=""><i class="fab fa-linkedin-in"></i></a>
+				<a href="https://github.com/vuqaragazade"><i class="fab fa-github"></i></a>
+				<a href=""><i class="fab fa-facebook-f"></i></a>
+				<a href="https://twitter.com/vuqaragazadee"><i class="fab fa-twitter"></i></a>
+				<a href="https://instagram.com/vuqaragazade"><i class="fab fa-instagram"></i></a>
+			</div>
+		</div>
+	</footer>
+	<script>
+		$(document).ready(() => {
+			percentages = {
+				html: 95,
+				css: 90,
+				javascript: 70,
+				php: 40,
+				python: 40,
+				bootstrap: 90,
+				materialize: 90,
+				jquery: 80,
+				ajax: 80,
+				nodejs: 50,
+				git: 80,
+				wordpress: 70
+			}
+			$("#about ul li:nth-child(1)").click( function() {
+				$("#content").html(`
+				<ul id="list">
+					<li>Name: <span>Vüqar Ağazadə</span></li>
+					<li>Date of birth: <span>28/06/1996</span></li>
+					<li>Phone: <span>+994709440237</span></li>
+					<li>Email: <span>agazade.vuqar.1996@gmail.com</span></li>
+					<li>Address: <span>Bileceri , 1 may s., Baku</span></li>
+					<li>Nationality: <span>Azerbaijan</span></li>
+				</ul>
+				`)
+			})
+			$("#about ul li:nth-child(2)").click( function() {
+				$("#content").html(`
+				<ul id="list">
+					<li>High School: <span>Baku Turkish High School (08/2010 – 08/2014)</span></li>
+					<li>University: <span>Azerbaijan Architecture and Construction University: İT engineering (08/2014 – 08/2018)</span></li>
+					<li>Course: <span>Step İT Academy: Front-end developer (10/2019 – present)</span></li>
+				</ul>
+				`);
+			})
+			function loadPercent() {
+				$("#html .percentage").css({
+					"width": $(".rate").width()*percentages.html/100,
+					"left": -$(".rate").width()*percentages.html/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#css .percentage").css({
+					"width": $(".rate").width()*percentages.css/100,
+					"left": -$(".rate").width()*percentages.css/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#javascript .percentage").css({
+					"width": $(".rate").width()*percentages.javascript/100,
+					"left": -$(".rate").width()*percentages.javascript/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#php .percentage").css({
+					"width": $(".rate").width()*percentages.php/100,
+					"left": -$(".rate").width()*percentages.php/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#python .percentage").css({
+					"width": $(".rate").width()*percentages.python/100,
+					"left": -$(".rate").width()*percentages.python/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#bootstrap .percentage").css({
+					"width": $(".rate").width()*percentages.bootstrap/100,
+					"left": -$(".rate").width()*percentages.bootstrap/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#materialize .percentage").css({
+					"width": $(".rate").width()*percentages.materialize/100,
+					"left": -$(".rate").width()*percentages.materialize/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#jquery .percentage").css({
+					"width": $(".rate").width()*percentages.jquery/100,
+					"left": -$(".rate").width()*percentages.jquery/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#ajax .percentage").css({
+					"width": $(".rate").width()*percentages.ajax/100,
+					"left": -$(".rate").width()*percentages.ajax/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#nodejs .percentage").css({
+					"width": $(".rate").width()*percentages.nodejs/100,
+					"left": -$(".rate").width()*percentages.nodejs/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#git .percentage").css({
+					"width": $(".rate").width()*percentages.git/100,
+					"left": -$(".rate").width()*percentages.git/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+				$("#wordpress .percentage").css({
+					"width": $(".rate").width()*percentages.wordpress/100,
+					"left": -$(".rate").width()*percentages.wordpress/100
+				})
+				.animate({left: 0}, 2000, 'linear');
+			}
+			loadPercent();
+		})
+	</script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
