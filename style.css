@@ -63,21 +63,25 @@ main {
     width: 60%;
     padding: 10px;
 }
+.change-menu {
+    display: flex;
+}
 .change-menu li {
     cursor: pointer;
     display: inline;
     color: rgba(0, 119, 255, 0.747);
-    font-size: 1.7em;
+    font-size: 1.5em;
     font-weight: bold;
     font-family: Helvetica, Arial, Sans-serif;
     background-color: #222;
-    padding: 10px 40px;
+    padding: 10px 7%;
+    margin-right: 5px;
 }
 #content {
     width: 100%;
     min-height: 280px;
     background-color: #222;
-    margin-top: 17px;
+    margin-top: 5px;
     overflow: auto;
     padding-left: 30px;
 }
@@ -102,10 +106,13 @@ main {
     width: 100%;
     margin-top: 10px;
 }
+#skills .change-menu li {
+    padding: 10px 2%;
+}
 #skills-area {
     width: 100%;
     min-height: 280px;
-    margin-top: 17px;
+    margin-top: 5px;
     background-color: #222;
     overflow: auto;
 }
@@ -135,14 +142,17 @@ main {
     background-color: rgba(0, 119, 255, 0.747);
     top: 0;
 }
-#projects {
-    margin: 18px 0;
+.projectarea {
+    margin: 5px 0;
+}
+.projectarea .change-menu {
+    margin-bottom: 5px;
 }
 .listprojects {
     display: flex;
     background-color: #222;
     justify-content: space-between;
-    margin-top: 18px;
+    
     padding: 10px;
 }
 .single-project {
@@ -154,6 +164,9 @@ main {
     flex-direction: column;
     justify-content: space-between;
 }
+.single-project:hover {
+    box-shadow: 0 0 5px 2px #fff;
+}
 .screen {
     position: relative;
     width: 100%;
@@ -163,11 +176,11 @@ main {
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    box-shadow: 0px 0px 10px 2px #fff;
+    box-shadow: 0px 0px 7px 7px #000;
 }
 @keyframes rotate {
-    from {width: 30px;top: 0%; left: 2%;}
-    to {width: 30px;top: 0%; left:91%;}
+    from {width: 10%;top: 0%; left: 2%;}
+    to {width: 9%;top: 0%; left:90%; border-top-right-radius: 10px;border-bottom-right-radius: 10px;}
   }
 .effect {
     position: absolute;
@@ -274,20 +287,23 @@ footer a {
     .list li {
         font-size: 0.9em;
     }
+    .change-menu {
+        flex-wrap: wrap;
+    }
     #skills .change-menu li {
         text-align: center;
-        float: left;
         padding: 10px 0;
         display: block;
         width: 49%;
         margin-bottom: 5px ;
+        margin-right: 0;
     }
     #skills .change-menu li:first-child {
         margin-right: 2%;
     }
     #skills .change-menu li:last-child {
         width: 100%;
-        margin: 0 0 5px 0;
+        margin: 0;
     }
     #skills-area .list {
         width: 100%;
@@ -307,10 +323,6 @@ footer a {
     .single-project {
         width: 100%;
         margin-bottom: 10px;
-    }
-    @keyframes rotate {
-        from {width: 30px;top: 0%; left: 2%;}
-        to {width: 30px;top: 0%; left:88%;}
     }
     .btn-live, .btn-code {
         font-size: 0.9em;

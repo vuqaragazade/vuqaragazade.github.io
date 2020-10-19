@@ -1,0 +1,124 @@
+:root {
+	--sky: #6bc2f1;
+	--grey: ;
+}
+.my-grey {
+	color: #7c7c7c;
+}
+header {
+	min-height: 100vh;
+	padding: 0 0 20px 0;
+	background: url('img/header.jpg') center/cover no-repeat fixed;
+}
+.navbar-brand img {
+	margin: 0 90px 0 0;
+}
+.my-menu {
+	font: bold .9em "Roboto";
+	color: #252525 !important;
+}
+.my-sky-text { color: var(--sky) !important; }
+.my-sky-bg { background: var(--sky); }
+.my-nav-bg { background: rgba(255,255,255,.8); }
+#welcome {
+	padding: 120px 0;
+	background: #fff;
+}
+#features img {
+	height: 100%;
+	object-fit: cover;
+}
+#services {
+	padding: 120px 0 35px 0;
+}
+.servic-space {
+	padding-bottom: 40px;
+}
+.servic-space-col {
+	padding-bottom: 85px;
+}
+#gallery {
+	background-color: #f1f1f1;
+}
+.gal-pading {
+	padding: 60px 0 20px 0;
+}
+#testimonial {
+	background-color: #6bc2f1;
+}
+textarea {
+	resize: none;
+}
+.my-button {
+	border: 1px solid #6bc2f1;
+	color: #6bc2f1;
+}
+.my-button:hover {
+	background-color: #6bc2f1;
+	color: #fff;
+}
+footer {
+	background-color: #072135;
+	color: #93989e;
+	padding: 120px 0;
+}
+.my-cr {
+	height: 90px;
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.my-cr img {
+	height: 45px; 
+}
+.next-prev-pad {
+	padding-top: 110px;
+}
+#testimonial ol li {
+	background: none;
+}
+.my-margin {
+	margin-right: 5% !important;
+}
+.my-margin:last-child {
+	margin-right: 0 !important;
+}
+.carousel .active img {
+	height: 70px;
+	width: 70px !important;
+}
+@media (max-width: 767.98px) { 
+	.display-4 {
+		font-size: 2.5em;
+		line-height: 1;
+	}
+	.gal-pading {
+		padding: 0;
+	}
+	.my-cr {
+		height: 90px;
+		width: 100px;
+	}
+	.my-cr img {
+		height: 30px;
+		width: 30px;
+		object-fit: cover;
+	}
+	.my-margin {
+		margin-right: 5px !important;
+	}
+	.next-prev-pad {
+		padding-top: 115px;
+	}
+	.carousel .active img {
+		height: 45px;
+		width: 45px !important;
+	}
+ }
+ 
+ 
+ 
+ 
+ 
+ 

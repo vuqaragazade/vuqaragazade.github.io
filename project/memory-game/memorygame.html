@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Memory Game</title>
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			height: 100vh;
+			background: url("img/bg.jpg") center/cover no-repeat;
+		}
+		table {
+			margin: auto;
+			border-spacing: 10px;
+		}
+		td {
+			background: url("img/question.jpg") no-repeat;
+			background-size: 150px 21vh;
+		}
+		td:hover {
+			background-size: 155px 21.5vh;
+			box-shadow: 5px 5px 20px black;
+		}
+		span img {
+			width: 147px;
+			height: 20vh;
+		}
+		@media only screen and (max-width: 600px) {
+			body {
+				background: url("img/bg.jpg") no-repeat;
+			}
+			table {
+				margin-top: 50%;
+			}
+		}
+	</style>
+</head>	
+<body>
+	<table id="table"></table>
+	<script>
+		let kod = "";
+		let A = [];
+		let B = [];
+		for(i = 1;i <= 2; i++ ){
+			for(j= 1; j <= 8; j++){
+				A.push(j);
+			}
+		}
+		cedvelYarat();
+		function cedvelYarat() {
+			let q = 0;
+			for(i = 1; i <= 4; i++) {
+				kod += "<tr>";
+				for(j = 1; j <= 4 ; j++) {
+					x = Math.floor(Math.random() * A.length);  
+					kod += '<td onclick="first('+ q +')">' + '<span class="number"><img src="img/icon' + A[x] + '.jpg" /></span>' + '</td>';
+					B.push(A[x]);
+					A.splice(x,1);
+					q++;
+				}
+				kod += "</tr>";
+			}
+			document.getElementById("table").innerHTML = kod;
+		}
+		setTimeout(hidden, 3000);
+		function hidden() {
+			for(i = 0; i < B.length; i++) {
+				document.getElementsByClassName("number")[i].style.visibility = "hidden";
+			}
+		}
+		
+		let num1, num2;
+		let index1, index2;
+		let memory = [];
+		function first(first) {
+			kod = "";
+			num1 = document.getElementsByClassName("number")[first].innerHTML;
+			index1 = first;
+			let q = 0; 
+			for(i = 1; i <= 4; i++) {
+				kod += "<tr>";
+				for(j = 1; j <= 4 ; j++) {
+					if(memory.includes(q) || q == first) {
+						kod += '<td><span class="number" style="visibility: visible;"><img src="img/icon' + B[q] + '.jpg" /></span></td>';
+					}
+					else {
+						kod += '<td onclick="second('+ q +')"><span class="number" style="visibility: hidden;"><img src="img/icon' + B[q] + '.jpg" /></span></td>';
+					}
+					q++;
+				}
+				kod += "</tr>";
+			}
+			document.getElementById("table").innerHTML = kod;
+			document.getElementsByClassName("number")[first].style.visibility = "visible";
+		}
+		function second(second) {
+			num2 = document.getElementsByClassName("number")[second].innerHTML;
+			index2 = second;
+			if ( num1 == num2 ) {
+				memory.push(index1);
+				memory.push(index2);
+				kod = "";
+				firstS();
+				control();
+			}
+			else {
+				kod = "";
+				unclick();
+				kod = "";
+				setTimeout(firstS, 1000);
+			}
+		}
+		function firstS() {
+			let q = 0;
+			for(i = 1; i <= 4; i++) {
+				kod += "<tr>";
+				for(j = 1; j <= 4 ; j++) {
+					if(memory.includes(q)) {
+						kod += '<td><span class="number" style="visibility: visible;"><img src="img/icon' + B[q] + '.jpg" /></span></td>';
+					}
+					else {
+						kod += '<td onclick="first('+ q +')"><span class="number" style="visibility: hidden;"><img src="img/icon' + B[q] + '.jpg" /></span></td>';
+					}
+					q++;
+				}
+				kod += "</tr>";
+			}
+			document.getElementById("table").innerHTML = kod;
+		}
+		function unclick() {
+			let q = 0;
+			for(i = 1; i <= 4; i++) {
+				kod += "<tr>";
+				for(j = 1; j <= 4 ; j++) {
+					if(q == index2 || q == index1 || memory.includes(q)) {
+						kod += '<td><span class="number" style="visibility: visible;"><img src="img/icon' + B[q] + '.jpg" /></span></td>';
+					}
+					else {
+						kod += '<td><span class="number" style="visibility: hidden;"><img src="img/icon' + B[q] + '.jpg" /></span></td>';
+					}
+					q++;
+				}
+				kod += "</tr>";
+			}
+			document.getElementById("table").innerHTML = kod;
+		}
+		function control() {
+			if( memory.length == 16 ){
+				alert("You win!");
+			}
+			else {
+				
+			}
+		}
+	</script>
+</body>
+</html>
