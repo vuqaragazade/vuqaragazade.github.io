@@ -1,0 +1,103 @@
+h1 {
+    text-align: center;
+    font-size: 2.3em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2 {
+    text-align: center;
+    font-size: 1.7em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+hr {
+    width: 90%;
+    height: 2px;
+    background-color: silver;
+}
+b {
+    display: block;
+    color: black;
+    font-size: 1.3em;
+    padding: 10px 0;
+}
+#info .s {
+    width:200px;
+}
+.container {
+    width: 90%;
+    margin: auto;
+}
+img {
+    width: 170px;
+    height: 250px;
+    border-radius: 6px;
+    border: solid 1px #000;
+    padding: 5px;
+}
+article {
+    overflow: auto;
+}
+#education #f b:last-child {
+    margin-top: 23px;
+}
+#education .right .n:last-child {
+    margin-top: 23px;
+}
+.left {
+    float: left;
+    display: flex;
+    justify-content: space-between;
+}
+.right {
+    float: right;
+}
+.n {
+    margin-left: 40px;
+    display: block;
+    color: black;
+    font-size: 1.3em;
+    padding: 10px 0;
+}
+.s {
+    width: 300px;
+}
+.same {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+h3 {
+    text-align: center;
+    font-size: 1.5em;
+}
+.v {
+    margin-right: 10px;
+    padding: 0px 9px;
+    border-radius: 50%;
+    border: solid 1px #000;
+    display: inline;
+}
+.vb {
+    background-color: #000;
+}
+.value div {
+    margin: 22px 0;
+}
+.property {
+    width: 35%;
+}
+.value {
+    width: 30%;
+}
+.devided {
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+#experience .s {
+    width: 20px;
+}
