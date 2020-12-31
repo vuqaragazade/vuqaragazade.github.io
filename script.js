@@ -112,17 +112,12 @@ $(document).ready(() => {
     $("#skills .change-menu li:nth-child(2)").click( function() {
         $("#skills-area").html(`
             <ul class="list">
-                <li id="photoshop"><b>Adobe Photoshop</b>
+                <li id="turkish"><b>Turkish</b>
                     <div class="rate">
                         <div class="percentage"></div>
                     </div>
                 </li>
-                <li id="msoffice"><b>MS Office</b>
-                    <div class="rate">
-                        <div class="percentage"></div>
-                    </div>
-                </li>
-                <li id="seo"><b>SEO</b>
+                <li id="english"><b>English</b>
                     <div class="rate">
                         <div class="percentage"></div>
                     </div>
@@ -134,12 +129,17 @@ $(document).ready(() => {
     $("#skills .change-menu li:nth-child(3)").click( function() {
         $("#skills-area").html(`
             <ul class="list">
-                <li id="turkish"><b>Turkish</b>
+                <li id="photoshop"><b>Adobe Photoshop</b>
                     <div class="rate">
                         <div class="percentage"></div>
                     </div>
                 </li>
-                <li id="english"><b>English</b>
+                <li id="msoffice"><b>MS Office</b>
+                    <div class="rate">
+                        <div class="percentage"></div>
+                    </div>
+                </li>
+                <li id="seo"><b>SEO</b>
                     <div class="rate">
                         <div class="percentage"></div>
                     </div>
@@ -254,4 +254,42 @@ $(document).ready(() => {
     function stop(){
         clearInterval(t);
     }
+    /*
+    let x = 0;
+    let y = 0;
+    function animationOnHeader() {
+        $("#wallpaper").html("<div id='animation'></div>")
+        $("#animation").css({
+            "height": "10px",
+            "background-color": "blue",
+            "position": "absolute",
+            "z-index": "2",
+            "top": "10px",
+            "left": "0",
+            "width": "10px"
+        })
+    }
+    animationOnHeader();
+    let dx = 1;
+    let dy = 1;
+    function gc(){
+        c = (Math.random()>=0.5)? 1 : 0;
+    }
+    setInterval(gc,2000);
+    function astart(){
+        if(c==1) {
+            let aleft = $("#animation").css("left");
+            if((Number(aleft.replace("px", ""))+5)> $("#wallpaper").width()) {dx=-1;}
+            x++;
+            $("#animation").animate({left: x*dx,}, 1, 'linear');
+        }
+        if(c==0) {
+            let atop = $("#animation").css("top");
+            if((Number(atop.replace("px", ""))+5)> $("#wallpaper").height()) {dy=-1;}
+            y++;
+            $("#animation").animate({top: y*dy}, 1, 'linear');
+        }
+    }
+    setInterval(astart,50);
+    */
 })
