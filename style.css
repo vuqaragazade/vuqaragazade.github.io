@@ -276,9 +276,6 @@ footer a {
     color: black;
     font-size: 1.2em;
 }
-i {
-    font-style: normal !important;
-}
 
 @media only screen and (max-width: 768px) {
     main {
