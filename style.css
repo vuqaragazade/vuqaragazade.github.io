@@ -134,9 +134,9 @@ main {
     overflow: auto;
 }
 #skills-area .list {
-    width: 40%;
+    width: 44%;
     float: left;
-    margin-right: 10%;
+    margin-right: 6%;
 }
 #skills-area ul:first-child {
     padding-left: 30px;
@@ -339,6 +339,7 @@ footer a {
     }
     .social {
         float: left;
+        padding-left: 30px;
     }
     .listprojects {
         flex-wrap: wrap;

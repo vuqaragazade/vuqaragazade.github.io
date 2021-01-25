@@ -10,6 +10,7 @@ $(document).ready(() => {
         jquery: 80,
         ajax: 80,
         nodejs: 40,
+        angular: 50,
         git: 80,
         wordpress: 70,
         photoshop: 60,
@@ -36,7 +37,7 @@ $(document).ready(() => {
         <ul class="list">
             <li>High School: <span>Baku Turkish High School (08/2010 – 08/2014)</span></li>
             <li>University: <span>Azerbaijan Architecture and Construction University: İT engineering (08/2014 – 08/2018)</span></li>
-            <li>Course: <span>Step İT Academy: Front-end developer (10/2019 – present)</span></li>
+            <li>Course: <span>Step İT Academy: Front-end developer (10/2019 – 11/2020)</span></li>
         </ul>
         `);
     })
@@ -69,6 +70,11 @@ $(document).ready(() => {
                     </div>
                 </li>
                 <li id="nodejs"><b>NodeJs</b>
+                    <div class="rate">
+                        <div class="percentage"></div>
+                    </div>
+                </li>
+                <li id="angular"><b>Angular</b>
                     <div class="rate">
                         <div class="percentage"></div>
                     </div>
@@ -232,6 +238,11 @@ $(document).ready(() => {
         $("#english .percentage").css({
             "width": $(".rate").width()*percentages.english/100,
             "left": -$(".rate").width()*percentages.english/100
+        })
+        .animate({left: 0}, 2000, 'linear');
+        $("#angular .percentage").css({
+            "width": $(".rate").width()*percentages.angular/100,
+            "left": -$(".rate").width()*percentages.angular/100
         })
         .animate({left: 0}, 2000, 'linear');
     }
