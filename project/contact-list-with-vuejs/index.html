@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<head>
+    <title>Contact List App with VUEJS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div class="container" id="app">
+        <div class="panel panel-info">
+            <div class="panel-heading">           
+                <div class="panel-title">
+                    <h3 class="text-center">Contact List</h3>              
+                </div>      
+            </div>
+            <div class="panel-body">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>Contacts</th>
+                        <th>Phone Number</th>
+                        <th>Created | Modified</th>
+                        <th>Configure</th>
+                    </tr>
+                   </thead>
+                   <tbody>
+                    <tr v-for="(person,index) in contacts">
+                        <td><span v-if="person.isLoading">{{person.name}}</span><input text="text" v-model="person.name" class="form-control input-sm" v-if="!person.isLoading"></td>
+                        <td><span v-if="person.isLoading">{{person.tel}}</span><input text="text" v-model="person.tel" class="form-control input-sm" v-if="!person.isLoading"></td>
+                        <td><span>{{ person.created }} | {{ person.lastModified }}</span></td>
+                        <td><a href="#" @click="removeContact(index)"><i class="bi bi-trash"></i>&nbsp;</a>/<a href="#" @click="change(index)" v-if="person.isLoading"> <i class="bi bi-pencil-square"></i></a><a href="#" @click="save(index)" v-if="!person.isLoading">&nbsp;<i class="bi bi-journal-check"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="panel-footer">
+                <form class="form-inline">
+                    <div class="form-group mr-2">
+                        <span>Name：</span>
+                        <input type="text" class="form-control" v-model="newName" >
+                    </div>
+                    <div class="form-group mr-2">
+                        <span>Tel：</span>
+                        <input type="text" class="form-control" v-model="newTel" >
+                    </div> 
+                    <input type="button" class="btn btn-primary btn-sm px-3" value="Add" @click="addItem()">       
+                </form>            
+            </div>
+            <p class="import-note p-3">Import contact(s) from CSV file! (Structure must be: Name | Number )</p><input @change="onFileChange" id="csv-upload" type="file" value="Upload" />
+        </div> 
+    </div>
+    <script>
+        //localStorage.removeItem('contacts');
+        var app = new Vue({
+            el: '#app',
+            data: {
+                newName:"",
+                newTel:"",
+                fileContent:"",
+                contacts: [
+                    {name:"Vuqar",tel:"+994-70-944-02-37",created:"01-02-2021 12:30",lastModified:"01-02-2021 13:30", isLoading:true},
+                    {name:"Orxan",tel:"+994-55-330-10-20",created:"01-02-2021 11:30",lastModified:"01-02-2021 14:30", isLoading:true},
+                    {name:"Samir",tel:"+994-70-200-02-03",created:"01-02-2021 10:30",lastModified:"01-02-2021 11:30", isLoading:true}
+                ]
+            },
+            mounted() {
+                if(localStorage.getItem('contacts') != null){
+                    this.contacts = JSON.parse(localStorage.getItem('contacts'));
+                }
+            },
+            methods: {
+                getDate: function() {
+                    var currentdate = new Date(); 
+                    var datetime = currentdate.getDate() + "-"
+                                    + (currentdate.getMonth()+1)  + "-" 
+                                    + currentdate.getFullYear() + " "  
+                                    + currentdate.getHours() + ":"  
+                                    + currentdate.getMinutes()
+                    return datetime;                               
+                },
+                saveLocal: function() {
+                    localStorage.setItem("contacts", JSON.stringify(this.contacts));
+                },
+                
+                change: function(index) {
+                    this.contacts[index].isLoading = false;
+                },
+                save: function(index) {
+                    this.contacts[index].isLoading = true;
+                    this.contacts[index].lastModified = this.getDate();
+                    this.saveLocal();
+                },
+                removeContact: function(index) {
+                    this.contacts.splice(index,1);
+                    this.saveLocal();
+                },
+                addMe: function() {
+                    return {
+                        name: this.newName,
+                        tel: this.newTel,
+                        created:this.getDate(),
+                        lastModified:this.getDate(),
+                        isLoading:true
+                    }
+                },
+                addItem: function() {
+                    for(var i=0;i<this.contacts.length;i++){
+                        if((this.contacts[i].name == this.addMe().name)&&
+                            (this.contacts[i].tel == this.addMe().tel)){
+                            alert("name and telphone number was repeated");
+                            return false;
+                        }
+
+                    }
+                    this.contacts.push(this.addMe());
+                    this.saveLocal();
+                },
+                onFileChange: function(e) {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = e => {
+                        this.fileContent = e.target.result;
+                        var newcontacts = this.contacts;
+                        function csvToJSON(csv) {
+                            var record = csv.split(/\r\n|\n/);
+                            var headers = record[0].split(',');
+                            var lines = [];
+                            var json = {};
+                            function getDate() {
+                                var currentdate = new Date(); 
+                                var datetime = currentdate.getDate() + "-"
+                                                + (currentdate.getMonth()+1)  + "-" 
+                                                + currentdate.getFullYear() + " "  
+                                                + currentdate.getHours() + ":"  
+                                                + currentdate.getMinutes()
+                                return datetime;
+                            }
+                            for (var i = 0; i < record.length; i++) {
+                                var data = record[i].split(',');
+                                if (data.length == headers.length) {
+                                    var tarr = [];
+                                    for (var j = 0; j < headers.length; j++) {
+                                        tarr.push(data[j]);
+                                    }
+                                    lines.push(tarr);
+                                }
+                            }
+                                
+                            for (var k = 0; k < lines.length; ++k){
+                                json[k] = lines[k];
+                            }
+                            for(i=0; i<Object.keys(json).length; i++){
+                                function importData() {
+                                    return {
+                                        name: json[i][0],
+                                        tel: json[i][1],
+                                        created:getDate(),
+                                        lastModified:getDate(),
+                                        isLoading:true
+                                    }
+                                }
+                                newcontacts.push(importData())
+                            }
+                            return newcontacts;
+                        } 
+                        this.contacts = csvToJSON(this.fileContent);
+                        this.saveLocal();   
+                    };
+                    reader.readAsText(file);
+                }
+               
+                
+            }
+        })
+        
+    </script>
+</body>
+</html>
