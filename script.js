@@ -17,7 +17,8 @@ $(document).ready(() => {
         msoffice: 60,
         seo: 60,
         turkish: 80,
-        english: 60
+        english: 60,
+        vuejs: 60
     }
     $("#about ul li:nth-child(1)").click( function() {
         $("#content").html(`
@@ -81,6 +82,11 @@ $(document).ready(() => {
                 </li>
             </ul>
             <ul class="list">
+                <li id="vuejs"><b>Vue.js</b>
+                    <div class="rate">
+                        <div class="percentage"></div>
+                    </div>
+                </li>
                 <li id="bootstrap"><b>Bootstrap</b>
                     <div class="rate">
                         <div class="percentage"></div>
@@ -241,6 +247,11 @@ $(document).ready(() => {
         })
         .animate({left: 0}, 2000, 'linear');
         $("#angular .percentage").css({
+            "width": $(".rate").width()*percentages.angular/100,
+            "left": -$(".rate").width()*percentages.angular/100
+        })
+        .animate({left: 0}, 2000, 'linear');
+        $("#vuejs .percentage").css({
             "width": $(".rate").width()*percentages.angular/100,
             "left": -$(".rate").width()*percentages.angular/100
         })
