@@ -168,11 +168,12 @@ main {
 .listprojects {
     display: flex;
     background-color: #222;
-    justify-content: space-between;
-    
+    justify-content: flex-start;
+    flex-wrap: wrap;
     padding: 10px;
 }
 .single-project {
+    margin: 10px 1.5%;
     width: 30%;
     border-radius: 10px;
     background-color: #333;

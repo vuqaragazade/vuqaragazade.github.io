@@ -101,3 +101,9 @@ a {
 #experience .s {
     width: 20px;
 }
+#right {
+    font-weight: bold;
+    width: 50%;
+    float: right;
+    text-align: left;
+}
